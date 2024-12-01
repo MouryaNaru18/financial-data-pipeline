@@ -24,3 +24,12 @@ jobs:
 
       - name: Run Pipeline Script
         run: python pipeline.py
+
+      # Add a step to commit and push the updated CSV file
+      - name: Commit and Push Updated CSV
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add MRVL_data.csv
+          git commit -m "Update CSV with new data"
+          git push origin main
